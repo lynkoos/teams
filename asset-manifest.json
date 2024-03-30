@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/teams/static/css/main.bf2d9f9e.css",
+    "main.js": "/teams/static/js/main.5d5f8f50.js",
+    "static/js/453.85916684.chunk.js": "/teams/static/js/453.85916684.chunk.js",
+    "static/media/logo.png": "/teams/static/media/logo.f981daed5c9e46f8f1a1.png",
+    "index.html": "/teams/index.html",
+    "main.bf2d9f9e.css.map": "/teams/static/css/main.bf2d9f9e.css.map",
+    "main.5d5f8f50.js.map": "/teams/static/js/main.5d5f8f50.js.map",
+    "453.85916684.chunk.js.map": "/teams/static/js/453.85916684.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bf2d9f9e.css",
+    "static/js/main.5d5f8f50.js"
+  ]
+}
