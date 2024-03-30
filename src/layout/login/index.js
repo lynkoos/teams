@@ -53,11 +53,12 @@ const LoginIndex = ({ onLoginSuccess }) => {
                 throw new Error('Los datos de la API no son válidos.');
             }
     
-            const normalizedEmailOrUsername = emailOrUsername.toLowerCase();
             const user = data.find(user => {
                 const normalizedEmail = user.email.toLowerCase();
                 const normalizedNumber = user.number.toLowerCase();
-                return (normalizedEmail === normalizedEmailOrUsername || normalizedNumber === normalizedEmailOrUsername) && user.password === password;
+                const normalizedNikname = user.nikname.toLowerCase();
+                const normalizedInput = emailOrUsername.toLowerCase();
+                return (normalizedEmail === normalizedInput || normalizedNumber === normalizedInput || normalizedNikname === normalizedInput) && user.password === password;
             });
     
             if (user) {

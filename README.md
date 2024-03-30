@@ -1,0 +1,5 @@
+```bash
+serve -s build
+```
+
+
