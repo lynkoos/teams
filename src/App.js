@@ -1,18 +1,44 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import IndexHome from './layout/home';
-import SlashHome from './layout/slash';
+import React, { useState, useEffect } from 'react';
+import Login from './layout/login/index';
+import IndexHome from './layout/home/index';
+import LoadingScreen from './components/loading/loadingScreen';
 import './App.css';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const authenticatedUser = localStorage.getItem('authenticatedUser');
+    if (authenticatedUser) {
+      setIsLoggedIn(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
+    } else {
+      setIsLoading(false);
+    }
+  }, []);
+
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem('authenticatedUser', 'true');
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('authenticatedUser');
+  };
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<SlashHome />} />
-        <Route path="/home" element={<IndexHome />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      {!isLoggedIn && <Login onLoginSuccess={handleLoginSuccess} />}
+      {isLoggedIn && <IndexHome onLogout={handleLogout} />}
+    </div>
   );
 }
 

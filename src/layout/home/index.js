@@ -1,3 +1,5 @@
+//src/layout/home/index.js
+
 import React from 'react';
 import ChatComponent from './components/chat';
 import FaqsComponent from './components/faqs';
