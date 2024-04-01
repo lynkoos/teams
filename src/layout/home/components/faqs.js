@@ -1,32 +1,24 @@
-// src/layout/home/components/faqs.js
+// Faqs.js
+import React from 'react';
+import UserInfo from './script/userinfo';
 
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
-const FaqsComponent = () => {
-  const { chatId } = useParams();
-  const [chatData, setChatData] = useState(null);
-
-  useEffect(() => {
-    if (chatId) {
-      fetch(`https://660598892ca9478ea180b945.mockapi.io/api/v1/chats/${chatId}`)
-        .then(response => response.json())
-        .then(data => setChatData(data))
-        .catch(error => console.error('Error fetching chat data:', error));
-    }
-  }, [chatId]);
+const FaqsComponent = ({ selectedChat, onSendMessage }) => {
+  if (!selectedChat) {
+    return <div className="faq-container"><UserInfo/></div>;
+  }
 
   return (
-    <div className='Faqs-Content'>
-      {chatData ? (
-        <div>
-          <h1 className='Faqs-h1'>Detalles del chat</h1>
-          <p>Nombre: {chatData.Name}</p>
-          <p>Mensaje: {chatData.Message}</p>
-        </div>
-      ) : (
-        <p>Cargando información del chat...</p>
-      )}
+    <div className="faq-container">
+      <h2>Chat: {selectedChat.name}</h2>
+      <div className="messages">
+        {selectedChat.messages.map((message, index) => (
+          <div key={index} className="message">
+            {message}
+          </div>
+        ))}
+      </div>
+      <input type="text" placeholder="Type your message" />
+      <button onClick={onSendMessage}>Send</button>
     </div>
   );
 };

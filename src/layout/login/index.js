@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import QRCode from 'qrcode.react';
+import React, { useEffect, useState } from 'react';
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import qrLogo from './img/logo.png';
 import './style/login.css';
 
@@ -12,9 +12,9 @@ const LoginIndex = ({ onLoginSuccess }) => {
     const [loginError, setLoginError] = useState('');
 
     useEffect(() => {
-        const authenticatedUser = localStorage.getItem('authenticatedUser');
-        if (authenticatedUser) {
-            console.log('Usuario autenticado previamente:', JSON.parse(authenticatedUser));
+        const RSonOrGeRaDjuPeRAChaBStR = localStorage.getItem('RSonOrGeRaDjuPeRAChaBStR');
+        if (RSonOrGeRaDjuPeRAChaBStR) {
+            console.log('Usuario autenticado previamente:', JSON.parse(RSonOrGeRaDjuPeRAChaBStR));
         }
     }, []);
 
@@ -63,7 +63,7 @@ const LoginIndex = ({ onLoginSuccess }) => {
     
             if (user) {
                 console.log('Usuario autenticado:', user);
-                localStorage.setItem('authenticatedUser', JSON.stringify(user));
+                localStorage.setItem('RSonOrGeRaDjuPeRAChaBStR', JSON.stringify(user));
                 onLoginSuccess();
             } else {
                 setLoginError('El usuario o la contraseña son incorrectos.');

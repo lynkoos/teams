@@ -1,0 +1,56 @@
+.connection-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: dashed 4px black;
+    text-align: center;
+    max-width: 400px;
+  }
+  
+  .logo-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wifi-icon-container {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: dashed 2px black;
+  }
+
+  .wifi-icon-container svg{
+    font-size: 36px;
+  }
+  
+  .connection-screen-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .connection-screen-text {
+    font-size: 18px;
+  }
+  

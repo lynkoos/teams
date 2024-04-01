@@ -1,50 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import Login from './layout/login/index';
-import IndexHome from './layout/home/index';
+import React, { useEffect, useState } from 'react';
 import LoadingScreen from './components/loading/loadingScreen';
-import ConectionScreen from './components/coneccion/coneccion';
+import IndexHome from './layout/home/index';
+import Login from './layout/login/index';
 
 import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
-    const authenticatedUser = localStorage.getItem('authenticatedUser');
-    if (authenticatedUser) {
+    const RSonOrGeRaDjuPeRAChaBStR = localStorage.getItem('RSonOrGeRaDjuPeRAChaBStR');
+    if (RSonOrGeRaDjuPeRAChaBStR) {
       setIsLoggedIn(true);
       setIsLoading(false);
     } else {
       setIsLoading(false);
     }
-
-    const handleOnline = () => {
-      setIsOnline(true);
-    };
-
-    const handleOffline = () => {
-      setIsOnline(false);
-    };
-
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
   }, []);
 
   const handleLoginSuccess = () => {
     setIsLoggedIn(true);
-    localStorage.setItem('authenticatedUser', 'true');
+    localStorage.setItem('RSonOrGeRaDjuPeRAChaBStR', 'true');
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('authenticatedUser');
+    localStorage.removeItem('RSonOrGeRaDjuPeRAChaBStR');
   };
 
   useEffect(() => {
@@ -55,10 +37,6 @@ function App() {
       }, 2000);
     }
   }, [isLoggedIn]);
-
-  if (!isLoggedIn && !isOnline) {
-    return <ConectionScreen />;
-  }
 
   if (isLoading) {
     return <LoadingScreen />;
